@@ -24,7 +24,8 @@
 		"vscode": {
 			"extensions": [
 				"eamodio.gitlens",
-				"Shopify.ruby-extensions-pack"
+				"Shopify.ruby-extensions-pack",
+				"EditorConfig.EditorConfig"
 			]
 		}
 	}
