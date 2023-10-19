@@ -5,6 +5,10 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
+    environment:
+      DEMO_APP_DATABASE_USER: postgres
+      DEMO_APP_DATABASE_PASSWORD: postgres
+      DEMO_APP_DATABASE_HOST: db
 
     volumes:
       - ../..:/workspaces:cached
