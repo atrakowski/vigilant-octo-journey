@@ -1,0 +1,26 @@
+de:
+  activerecord:
+    attributes:
+      admin:
+        created_at: Erstellt am
+        current_password: Bisheriges Passwort
+        current_sign_in_at: Aktuelle Anmeldung am
+        current_sign_in_ip: IP der aktuellen Anmeldung
+        email: E-Mail
+        encrypted_password: Verschlüsseltes Passwort
+        last_sign_in_at: Letzte Anmeldung am
+        last_sign_in_ip: IP der letzten Anmeldung
+        password: Passwort
+        password_confirmation: Passwortbestätigung
+        sign_in_count: Anzahl der Anmeldungen
+        updated_at: Aktualisiert am
+    models:
+      admin:
+        one: Administrator
+        other: Administratoren
+
+  admins:
+    dashboards:
+      show:
+        logout: Ausloggen
+        welcome: Willkommen im Administrationsbereich!
