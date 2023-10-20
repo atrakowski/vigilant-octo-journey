@@ -10,10 +10,12 @@ de:
         encrypted_password: Verschlüsseltes Passwort
         last_sign_in_at: Letzte Anmeldung am
         last_sign_in_ip: IP der letzten Anmeldung
+        login: E-Mail oder Benutzername
         password: Passwort
         password_confirmation: Passwortbestätigung
         sign_in_count: Anzahl der Anmeldungen
         updated_at: Aktualisiert am
+        username: Benutzername
     models:
       admin:
         one: Administrator
@@ -24,3 +26,9 @@ de:
       show:
         logout: Ausloggen
         welcome: Willkommen im Administrationsbereich!
+    sessions:
+      already_signed_out: Sie sind bereits abgemeldet.
+      new:
+        sign_in: Anmelden
+      signed_in: Sie sind nun angemeldet.
+      signed_out: Sie haben sich erfolgreich abgemeldet.

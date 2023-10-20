@@ -9,11 +9,13 @@
 #   end
 
 Admin.find_or_create_by!(email: "admin1@example.com") do |admin|
+  admin.username = "admin1"
   admin.password = "MW4ZKS4hV5L@tYV#baji&5f*"
   admin.password_confirmation = "MW4ZKS4hV5L@tYV#baji&5f*"
 end
 
 Admin.find_or_create_by!(email: "admin2@example.com") do |admin|
+  admin.username = "admin2"
   admin.password = "MW4ZKS4hV5L@tYV#baji&5f*"
   admin.password_confirmation = "MW4ZKS4hV5L@tYV#baji&5f*"
 end
