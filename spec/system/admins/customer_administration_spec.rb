@@ -28,7 +28,7 @@ RSpec.describe "Customer Customeristration" do
     it "can create a new customer (which is also immediately confirmed)" do
       visit admin_customers_path
       expect(page).to have_content(I18n.t("admins.customers.index.title"))
-      click_on I18n.t("admins.shared.links.new_customer")
+      click_on I18n.t("admins.customers.index.new_customer")
       expect(page).to have_content(I18n.t("admins.customers.new.title"))
       fill_in :customer_email, with: "new_customer@example.com"
       fill_in :customer_password, with: "abcd"*4

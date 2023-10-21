@@ -36,6 +36,7 @@ de:
         show: Details
       index:
         title: Admin-Verwaltung
+        new_admin: Neuen Admin anlegen
       show:
         title: Admin-Details
       new:
@@ -56,6 +57,7 @@ de:
         show: Details
       index:
         title: Kunden-Verwaltung
+        new_customer: Neuen Kunden anlegen
       show:
         title: Kunden-Details
       new:
@@ -81,11 +83,9 @@ de:
       value:
         blank: (leer)
         filtered: (wird nicht angezeigt)
-      links:
+      navigation_content:
         admins: Admins
-        back: Zurück
         customers: Kunden
         dashboard: Dashboard
+        logged_in_as: Eingeloggt als %{identifier}
         logout: Ausloggen
-        new_admin: Neuen Admin anlegen
-        new_customer: Neuen Kunden anlegen

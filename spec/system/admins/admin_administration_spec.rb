@@ -28,7 +28,7 @@ RSpec.describe "Admin Administration" do
     it "can create a new admin" do
       visit admin_admins_path
       expect(page).to have_content(I18n.t("admins.admins.index.title"))
-      click_on I18n.t("admins.shared.links.new_admin")
+      click_on I18n.t("admins.admins.index.new_admin")
       expect(page).to have_content(I18n.t("admins.admins.new.title"))
       fill_in :admin_email, with: "new_admin@example.com"
       fill_in :admin_username, with: "new_admin"

@@ -52,3 +52,20 @@ de:
         unhappy: Nicht zufrieden?
         update: Änderungen speichern
         we_need_your_current_password_to_confirm_your_changes: Zur Bestätigung geben Sie bitte Ihr aktuelles Passwort ein.
+    shared:
+      navigation_content:
+        dashboard: Start
+        registration: Einstellungen
+        logged_in_as: Eingeloggt als %{identifier}
+        logout: Ausloggen
+
+  devise:
+    registrations:
+      customer:
+        signed_up_but_not_approved: Sie haben sich erfolgreich registriert, aber Ihr Konto wurde noch nicht von Administratoren freigeschaltet.
+    errors:
+      messages:
+        not_approved: Ihr Konto wurde noch nicht von Administratoren freigeschaltet.
+    failure:
+      customer:
+        not_approved: Ihr Konto wurde noch nicht von Administratoren freigeschaltet.
