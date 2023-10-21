@@ -2,29 +2,74 @@ de:
   activerecord:
     attributes:
       admin:
+        born_on: Geburtsdatum
+        city: Stadt
         created_at: Erstellt am
         current_password: Bisheriges Passwort
         current_sign_in_at: Aktuelle Anmeldung am
         current_sign_in_ip: IP der aktuellen Anmeldung
         email: E-Mail
         encrypted_password: Verschlüsseltes Passwort
+        first_name: Vorname
+        last_name: Nachname
         last_sign_in_at: Letzte Anmeldung am
         last_sign_in_ip: IP der letzten Anmeldung
         login: E-Mail oder Benutzername
         password: Passwort
         password_confirmation: Passwortbestätigung
         sign_in_count: Anzahl der Anmeldungen
+        street: Straße
         updated_at: Aktualisiert am
         username: Benutzername
+        zip_code: PLZ
     models:
       admin:
         one: Administrator
         other: Administratoren
 
   admins:
+    admins:
+      admin:
+        confirm: Sicher?
+        destroy: Löschen
+        edit: Editieren
+        show: Details
+      index:
+        title: Admin-Verwaltung
+      show:
+        title: Admin-Details
+      new:
+        title: Neuen Admin anlegen
+      create:
+        success: Admin wurde erfolgreich erstellt.
+      edit:
+        title: Admin editieren
+      update:
+        success: Admin wurde erfolgreich aktualisiert.
+      destroy:
+        success: Admin wurde erfolgreich gelöscht.
+    customers:
+      customer:
+        confirm: Sicher?
+        destroy: Löschen
+        edit: Editieren
+        show: Details
+      index:
+        title: Kunden-Verwaltung
+      show:
+        title: Kunden-Details
+      new:
+        title: Neuen Kunden anlegen
+      create:
+        success: Kunde wurde erfolgreich erstellt.
+      edit:
+        title: Kunden editieren
+      update:
+        success: Kunde wurde erfolgreich aktualisiert.
+      destroy:
+        success: Kunde wurde erfolgreich gelöscht.
     dashboards:
       show:
-        logout: Ausloggen
         welcome: Willkommen im Administrationsbereich!
     sessions:
       already_signed_out: Sie sind bereits abgemeldet.
@@ -32,3 +77,15 @@ de:
         sign_in: Anmelden
       signed_in: Sie sind nun angemeldet.
       signed_out: Sie haben sich erfolgreich abgemeldet.
+    shared:
+      value:
+        blank: (leer)
+        filtered: (wird nicht angezeigt)
+      links:
+        admins: Admins
+        back: Zurück
+        customers: Kunden
+        dashboard: Dashboard
+        logout: Ausloggen
+        new_admin: Neuen Admin anlegen
+        new_customer: Neuen Kunden anlegen

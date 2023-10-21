@@ -2,6 +2,8 @@ de:
   activerecord:
     attributes:
       customer:
+        born_on: Geburtsdatum
+        city: Stadt
         confirmation_sent_at: Bestätigung gesendet am
         confirmation_token: Bestätigungs-Token
         confirmed_at: Bestätigt am
@@ -12,6 +14,8 @@ de:
         email: E-Mail
         encrypted_password: Verschlüsseltes Passwort
         failed_attempts: Fehlversuche
+        first_name: Vorname
+        last_name: Nachname
         last_sign_in_at: Letzte Anmeldung am
         last_sign_in_ip: IP der letzten Anmeldung
         locked_at: Gesperrt am
@@ -22,9 +26,11 @@ de:
         reset_password_sent_at: E-Mail zum Zurücksetzen des Passworts gesendet am
         reset_password_token: Token zum Zurücksetzen des Passworts
         sign_in_count: Anzahl der Anmeldungen
+        street: Straße
         unconfirmed_email: Unbestätigte E-Mail-Adresse
         unlock_token: Entsperrungs-Token
         updated_at: Aktualisiert am
+        zip_code: PLZ
     models:
       customer:
         one: Kunde
@@ -35,3 +41,14 @@ de:
       show:
         logout: Ausloggen
         welcome: Willkommen im Kundenportal!
+    registrations:
+      destroyed: Ihr Konto wurde gelöscht. Wir hoffen, Sie bald wiederzusehen.
+      edit:
+        are_you_sure: Sind Sie sicher, dass Sie das tun möchten?
+        cancel_my_account: Konto löschen
+        currently_waiting_confirmation_for_email: Bestätigung für %{email} ausstehend.
+        leave_blank_if_you_don_t_want_to_change_it: Leer lassen, wenn Sie es unverändert lassen möchten.
+        title: "%{resource} bearbeiten"
+        unhappy: Nicht zufrieden?
+        update: Änderungen speichern
+        we_need_your_current_password_to_confirm_your_changes: Zur Bestätigung geben Sie bitte Ihr aktuelles Passwort ein.

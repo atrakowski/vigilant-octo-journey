@@ -1,0 +1,18 @@
+<h1><%= t(".title") %></h1>
+
+<dl>
+  <% @customer.attributes.each do |key, value| %>
+    <dt><%= Customer.human_attribute_name(key) %></dt>
+    <dd>
+      <%- if value.blank? && !value.eql?(false) %>
+        <%= t("admins.shared.value.blank") %>
+      <%- elsif key.match?("password") || key.match?("token") %>
+        <%= t("admins.shared.value.filtered") %>
+      <% else %>
+        <%= value %>
+      <% end %>
+    </dd>
+  <% end %>
+</dl>
+
+<%= render "admins/shared/links" %>

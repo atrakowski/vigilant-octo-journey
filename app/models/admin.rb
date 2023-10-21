@@ -6,6 +6,12 @@ class Admin < ApplicationRecord
     presence: true,
     uniqueness: { case_sensitive: true }
 
+  validates :first_name,
+    presence: true
+
+  validates :last_name,
+    presence: true
+
   # Include devise modules. Others available are:
   # :registerable, :recoverable, :rememberable, :confirmable, :lockable, :timeoutable, and :omniauthable
   devise(

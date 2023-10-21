@@ -12,20 +12,28 @@ Admin.find_or_create_by!(email: "admin1@example.com") do |admin|
   admin.username = "admin1"
   admin.password = "MW4ZKS4hV5L@tYV#baji&5f*"
   admin.password_confirmation = "MW4ZKS4hV5L@tYV#baji&5f*"
+  admin.first_name = "Eileen"
+  admin.last_name = "Uchitelle"
 end
 
 Admin.find_or_create_by!(email: "admin2@example.com") do |admin|
   admin.username = "admin2"
   admin.password = "MW4ZKS4hV5L@tYV#baji&5f*"
   admin.password_confirmation = "MW4ZKS4hV5L@tYV#baji&5f*"
+  admin.first_name = "Aaron"
+  admin.last_name = "Patterson"
 end
 
 Customer.find_or_create_by!(email: "customer1@example.com") do |customer|
   customer.password = "6cMVQbheq9&R9C#SoB4$nY2j"
   customer.password_confirmation = "6cMVQbheq9&R9C#SoB4$nY2j"
+  customer.first_name = "John"
+  customer.last_name = "Doe"
 end
 
 Customer.find_or_create_by!(email: "customer2@example.com") do |customer|
   customer.password = "6cMVQbheq9&R9C#SoB4$nY2j"
   customer.password_confirmation = "6cMVQbheq9&R9C#SoB4$nY2j"
+  customer.first_name = "Erika"
+  customer.last_name = "Mustermann"
 end

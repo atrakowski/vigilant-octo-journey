@@ -1,0 +1,10 @@
+<%# locals: (customer:, customer_counter:, customer_iteration:) -%>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= "#{customer.first_name} #{customer.last_name}" %></h5>
+    <p class="card-text"><%= customer.email %></p>
+    <%= link_to t(".show"), admin_customer_path(customer), class: "card-link" %>
+    <%= link_to t(".edit"), edit_admin_customer_path(customer), class: "card-link" %>
+    <%= link_to t(".destroy"), admin_customer_path(customer), class: "card-link", data: { turbo_method: :delete, turbo_confirm: t(".confirm") } %>
+  </div>
+</div>

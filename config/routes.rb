@@ -3,15 +3,17 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_scope :admin do
-    scope module: :admins, path: :admins do
-      get 'dashboards/show', as: :admin_root
+    scope module: :admins, path: :admins, as: :admin do
+      get 'dashboards/show', as: :root
+      resources :admins
+      resources :customers
     end
   end
 
-  devise_for :customers
+  devise_for :customers, controllers: { registrations: 'customers/registrations' }
   devise_scope :customer do
-    scope module: :customers, path: :customers do
-      get 'dashboards/show', as: :customer_root
+    scope module: :customers, path: :customers, as: :customer do
+      get 'dashboards/show', as: :root
     end
   end
 
