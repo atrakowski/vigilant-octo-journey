@@ -1,7 +1,17 @@
 <%# locals: (customer:, customer_counter:, customer_iteration:) -%>
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= "#{customer.first_name} #{customer.last_name}" %></h5>
+    <h5 class="card-title">
+        <%= "#{customer.first_name} #{customer.last_name}" %>
+        <%- if customer.active_for_authentication? %>
+          <span class="badge text-bg-success"><%= t(".state.active") %></span>
+        <%- else %>
+          <%- human_inactive_message = t(".state.#{customer.inactive_message}", default: nil) %>
+          <%- if human_inactive_message.present? %>
+            <span class="badge text-bg-danger"><%= human_inactive_message %></span>
+          <% end %>
+        <% end %>
+      </h5>
     <p class="card-text"><%= customer.email %></p>
     <%= link_to t(".show"), admin_customer_path(customer), class: "card-link" %>
     <%= link_to t(".edit"), edit_admin_customer_path(customer), class: "card-link" %>

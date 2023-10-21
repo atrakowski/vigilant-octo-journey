@@ -70,6 +70,7 @@ class Admins::CustomersController < Admins::ApplicationController
       :street,
       :zip_code,
       :city,
+      :approved,
     )
   end
   alias_method :customer_create_params, :customer_params

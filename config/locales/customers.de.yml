@@ -63,9 +63,5 @@ de:
     registrations:
       customer:
         signed_up_but_not_approved: Sie haben sich erfolgreich registriert, aber Ihr Konto wurde noch nicht von Administratoren freigeschaltet.
-    errors:
-      messages:
-        not_approved: Ihr Konto wurde noch nicht von Administratoren freigeschaltet.
     failure:
-      customer:
-        not_approved: Ihr Konto wurde noch nicht von Administratoren freigeschaltet.
+      not_approved: Ihr Konto wurde noch nicht von Administratoren freigeschaltet.

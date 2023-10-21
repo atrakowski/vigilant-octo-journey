@@ -102,6 +102,42 @@ RSpec.describe "Customer Customeristration" do
       expect(customer.valid_password?("efgh" * 4)).to eql(true)
     end
 
+    it "can approve or disapprove a customer" do
+      customer = create(:customer, email: "customer@example.com")
+      expect(customer).not_to be_approved
+
+      visit admin_customers_path
+      expect(page).to have_content(I18n.t("admins.customers.index.title"))
+      expect(page).to have_content("customer@example.com")
+      within(page.find("div.card", text: "customer@example.com")) do
+        click_on I18n.t("admins.customers.customer.edit")
+      end
+      check :customer_approved
+      click_on I18n.t("helpers.submit.update", model: Customer.model_name.human)
+
+      expect(page).to have_content(I18n.t("admins.customers.update.success"))
+      customer.reload
+      expect(customer).to be_approved
+    end
+
+    it "can disapprove a customer" do
+      customer = create(:customer, :approved, email: "customer@example.com")
+      expect(customer).to be_approved
+
+      visit admin_customers_path
+      expect(page).to have_content(I18n.t("admins.customers.index.title"))
+      expect(page).to have_content("customer@example.com")
+      within(page.find("div.card", text: "customer@example.com")) do
+        click_on I18n.t("admins.customers.customer.edit")
+      end
+      uncheck :customer_approved
+      click_on I18n.t("helpers.submit.update", model: Customer.model_name.human)
+
+      expect(page).to have_content(I18n.t("admins.customers.update.success"))
+      customer.reload
+      expect(customer).not_to be_approved
+    end
+
     it "can destroy a customer" do
       customer = create(:customer, email: "customer@example.com")
       other_customer = create(:customer, email: "other_customer@example.com")

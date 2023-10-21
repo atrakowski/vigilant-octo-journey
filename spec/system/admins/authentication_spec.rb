@@ -22,7 +22,7 @@ RSpec.describe "Admin Authentication" do
   end
 
   context "when signed in as customer" do
-    let(:customer) { create(:customer, :confirmed) }
+    let(:customer) { create(:customer, :confirmed, :approved) }
 
     before do
       sign_in customer

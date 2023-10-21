@@ -55,6 +55,12 @@ de:
         destroy: Löschen
         edit: Editieren
         show: Details
+        state:
+          active: Aktiv
+          inactive: Nicht aktiv
+          locked: Gesperrt
+          unconfirmed: E-Mail nicht bestätigt
+          not_approved: Nicht freigeschaltet
       index:
         title: Kunden-Verwaltung
         new_customer: Neuen Kunden anlegen

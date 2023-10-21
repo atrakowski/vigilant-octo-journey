@@ -8,5 +8,9 @@ FactoryBot.define do
     trait :confirmed do
       confirmed_at { Time.zone.now }
     end
+
+    trait :approved do
+      approved { true }
+    end
   end
 end

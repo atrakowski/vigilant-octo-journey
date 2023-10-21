@@ -10,7 +10,7 @@ RSpec.describe "Customer Authentication" do
       sign_out customer
     end
 
-    it "forces me to sign in" do
+    it "makes customer resources unavailable" do
       visit customer_root_path
 
       expect(page).not_to have_content(I18n.t("customers.dashboards.show.welcome"))
@@ -28,7 +28,7 @@ RSpec.describe "Customer Authentication" do
       sign_in customer
     end
 
-    it "forces me to sign in" do
+    it "makes customer resources unavailable" do
       visit customer_root_path
 
       expect(page).not_to have_content(I18n.t("customers.dashboards.show.welcome"))
@@ -39,14 +39,32 @@ RSpec.describe "Customer Authentication" do
     end
   end
 
-  context "when signed in and confirmed" do
+  context "when signed in and confirmed, but not admin approved yet" do
     let(:customer) { create(:customer, :confirmed) }
 
     before do
       sign_in customer
     end
 
-    it "shows customer dashboard" do
+    it "makes customer resources unavailable" do
+      visit customer_root_path
+
+      expect(page).not_to have_content(I18n.t("customers.dashboards.show.welcome"))
+      expect(page).not_to have_current_path(customer_root_path)
+
+      expect(page).to have_content(I18n.t("devise.sessions.new.sign_in"))
+      expect(page).to have_current_path(new_customer_session_path)
+    end
+  end
+
+  context "when signed in and confirmed and admin approved" do
+    let(:customer) { create(:customer, :confirmed, :approved) }
+
+    before do
+      sign_in customer
+    end
+
+    it "shows e.g. customer dashboard" do
       visit customer_root_path
 
       expect(page).not_to have_content(I18n.t("devise.sessions.new.sign_in"))
