@@ -1,4 +1,6 @@
 class Customer < ApplicationRecord
+  after_create :enqueue_registration_cleanup
+
   validates :first_name,
     presence: true
 
@@ -24,5 +26,11 @@ class Customer < ApplicationRecord
 
   def inactive_message
     approved? ? super : :not_approved
+  end
+
+  private
+
+  def enqueue_registration_cleanup
+    RegistrationCleanupJob.set(wait: 1.day).perform_later(self)
   end
 end
