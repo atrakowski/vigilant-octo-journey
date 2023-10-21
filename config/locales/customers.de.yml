@@ -2,6 +2,7 @@ de:
   activerecord:
     attributes:
       customer:
+        approved: Freigeschaltet
         born_on: Geburtsdatum
         city: Stadt
         confirmation_sent_at: Bestätigung gesendet am
