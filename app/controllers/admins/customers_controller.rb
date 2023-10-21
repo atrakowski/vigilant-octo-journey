@@ -1,5 +1,5 @@
 class Admins::CustomersController < Admins::ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :unlock]
 
   def index
     @customers = Customer.all.order(email: :asc)
@@ -53,6 +53,15 @@ class Admins::CustomersController < Admins::ApplicationController
     end
   end
 
+  def unlock
+    @customer.unlock_access!
+
+    respond_to do |format|
+      format.html { redirect_to admin_customers_url, notice: t(".success") }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_customer
@@ -71,6 +80,7 @@ class Admins::CustomersController < Admins::ApplicationController
       :zip_code,
       :city,
       :approved,
+      :confirmed_at,
     )
   end
   alias_method :customer_create_params, :customer_params

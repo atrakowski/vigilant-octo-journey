@@ -16,5 +16,8 @@
     <%= link_to t(".show"), admin_customer_path(customer), class: "card-link" %>
     <%= link_to t(".edit"), edit_admin_customer_path(customer), class: "card-link" %>
     <%= link_to t(".destroy"), admin_customer_path(customer), class: "card-link", data: { turbo_method: :delete, turbo_confirm: t(".confirm") } %>
+    <%- if customer.access_locked? %>
+      <%= link_to t(".unlock"), unlock_admin_customer_path(customer), class: "card-link", data: { turbo_method: :patch } %>
+    <% end %>
   </div>
 </div>

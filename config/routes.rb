@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     scope module: :admins, path: :admins, as: :admin do
       get 'dashboards/show', as: :root
       resources :admins
-      resources :customers
+      resources :customers do
+        patch 'unlock', on: :member
+      end
     end
   end
 

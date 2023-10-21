@@ -55,6 +55,7 @@ de:
         destroy: Löschen
         edit: Editieren
         show: Details
+        unlock: Entsperren
         state:
           active: Aktiv
           inactive: Nicht aktiv
@@ -76,6 +77,8 @@ de:
         success: Kunde wurde erfolgreich aktualisiert.
       destroy:
         success: Kunde wurde erfolgreich gelöscht.
+      unlock:
+        success: Kunde wurde erfolgreich entsperrt.
     dashboards:
       show:
         welcome: Willkommen im Administrationsbereich!

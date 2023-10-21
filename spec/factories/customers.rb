@@ -12,5 +12,10 @@ FactoryBot.define do
     trait :approved do
       approved { true }
     end
+
+    trait :locked do
+      locked_at { Time.zone.now }
+      failed_attempts { 42 }
+    end
   end
 end

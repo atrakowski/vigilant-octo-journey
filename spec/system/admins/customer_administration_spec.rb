@@ -50,7 +50,7 @@ RSpec.describe "Customer Customeristration" do
       expect(page).to have_content("Customer")
     end
 
-    it "can edit a customer without changing their password and with reconfirming email" do
+    it "can edit a customer without changing their password and without reconfirming email" do
       customer = create(:customer, email: "some_customer@example.com", first_name: "SomeFirstName", city: nil)
 
       visit admin_customers_path
@@ -102,13 +102,12 @@ RSpec.describe "Customer Customeristration" do
       expect(customer.valid_password?("efgh" * 4)).to eql(true)
     end
 
-    it "can approve or disapprove a customer" do
+    it "can approve a customer" do
       customer = create(:customer, email: "customer@example.com")
       expect(customer).not_to be_approved
 
       visit admin_customers_path
       expect(page).to have_content(I18n.t("admins.customers.index.title"))
-      expect(page).to have_content("customer@example.com")
       within(page.find("div.card", text: "customer@example.com")) do
         click_on I18n.t("admins.customers.customer.edit")
       end
@@ -126,7 +125,6 @@ RSpec.describe "Customer Customeristration" do
 
       visit admin_customers_path
       expect(page).to have_content(I18n.t("admins.customers.index.title"))
-      expect(page).to have_content("customer@example.com")
       within(page.find("div.card", text: "customer@example.com")) do
         click_on I18n.t("admins.customers.customer.edit")
       end
@@ -136,6 +134,40 @@ RSpec.describe "Customer Customeristration" do
       expect(page).to have_content(I18n.t("admins.customers.update.success"))
       customer.reload
       expect(customer).not_to be_approved
+    end
+
+    it "can confirm a customer" do
+      customer = create(:customer, email: "customer@example.com")
+      expect(customer).not_to be_confirmed
+
+      visit admin_customers_path
+      expect(page).to have_content(I18n.t("admins.customers.index.title"))
+      within(page.find("div.card", text: "customer@example.com")) do
+        click_on I18n.t("admins.customers.customer.edit")
+      end
+      fill_in :customer_confirmed_at, with: Time.zone.now
+      click_on I18n.t("helpers.submit.update", model: Customer.model_name.human)
+
+      expect(page).to have_content(I18n.t("admins.customers.update.success"))
+      customer.reload
+      expect(customer).to be_confirmed
+    end
+
+    it "can unlock a customer" do
+      customer = create(:customer, :locked, email: "customer@example.com")
+      expect(customer).to be_access_locked
+      expect(customer.failed_attempts).to be > 0
+
+      visit admin_customers_path
+      expect(page).to have_content(I18n.t("admins.customers.index.title"))
+      within(page.find("div.card", text: "customer@example.com")) do
+        click_on I18n.t("admins.customers.customer.unlock")
+      end
+      expect(page).to have_content(I18n.t("admins.customers.unlock.success"))
+
+      customer.reload
+      expect(customer).not_to be_access_locked
+      expect(customer.failed_attempts).to eql(0)
     end
 
     it "can destroy a customer" do
